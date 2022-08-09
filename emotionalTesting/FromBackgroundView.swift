@@ -7,7 +7,6 @@
 import SwiftUI
 struct ReusableView: View {
     
-    let dataSource = DataSource()
     var backgroundColor: Color
     var image: String = ""
     var title: String = ""
@@ -27,7 +26,7 @@ struct ReusableView: View {
                         .fontWeight(.bold)
                         .padding(.top, 10)
                         .padding(.leading, 5)
-                        .font(Font.custom(dataSource.firaSansFont, size: 18))
+                        .font(Font.custom("FiraSans-BookItalic.otf", size: 18))
                         .foregroundColor(Color.white)
                     
                 }
@@ -37,7 +36,7 @@ struct ReusableView: View {
                     .padding(.leading, 25)
                     .padding(.trailing, 25)
                     .padding(.top, 10)
-                    .font(Font.custom(dataSource.firaSansFont, size: 14))
+                    .font(Font.custom("FiraSans-BookItalic.otf", size: 14))
                     .foregroundColor(Color.white)
                 
                 Button(action: {
@@ -66,25 +65,31 @@ struct ReusableView: View {
 struct MainView: View{
     @State var sizeStateScreenTwo: CGFloat = 1.30
     @State var sizeStateScreenThree: CGFloat = 0.80
-    var dataSource = DataSource()
+    //var dataSource = DataSource()
+    var screens: (screenOne: DataSource, screenTwo: DataSource, screenThree: DataSource) =
+        (DataSource(imageName: "Speak (1)", title: "REFLECTION", description: "Write about 5 people that have made your life better and why"),
+         DataSource(imageName: "Feelings (1)", title: "DIVE", description: "In a few days, go back to see the pictures you took. What are the things that you really love? Check if they are really in the pictures. What your camera has captured is what you love? Write it down"),
+         DataSource(imageName: "Think", title: "PRACTICE", description: "Imagine yourself in 1 year. Think where you are and how makes you feel that your dreams came true. Imagine you accomplished all you wanted. Describe all the details you imagine, who are you with? What surrounds you?"))
     var body: some View{
         
         GeometryReader { geometry in
             ZStack(alignment: .bottom){
+                
                 ReusableView(backgroundColor: Color(red: 29 / 255, green: 204 / 255, blue: 194 / 255),
-                             image: dataSource.image,
-                             title:  dataSource.title,
-                             description:  dataSource.description)
+                             image: screens.screenOne.imageName,
+                             title:  screens.screenOne.title,
+                             description:  screens.screenOne.description)
                     .onTapGesture(count: 1, perform: {
                         withAnimation{
                             sizeStateScreenTwo = 0.90
                             sizeStateScreenThree = 0.50
                         }
                     })
+                
                 ReusableView(backgroundColor: Color(red: 50 / 255, green: 156 / 255, blue: 253 / 255) ,
-                             image: dataSource.imageTwo,
-                             title: dataSource.titleTwo,
-                             description: DataSource().descriptionTwo)
+                             image: screens.screenTwo.imageName,
+                             title: screens.screenTwo.title,
+                             description: screens.screenTwo.description)
                     .frame(height: geometry.size.width * sizeStateScreenTwo)
                     .onTapGesture(count: 1, perform: {
                         withAnimation{
@@ -92,11 +97,11 @@ struct MainView: View{
                             sizeStateScreenThree = 0.50
                         }
                     })
-                //[199, 70, 116],
+                
                 ReusableView(backgroundColor: Color(red: 199 / 255, green: 70 / 255, blue: 116 / 255),
-                             image: dataSource.imageThree,
-                             title: dataSource.titleThree,
-                             description: dataSource.descriptionThree)
+                             image: screens.screenThree.imageName,
+                             title: screens.screenThree.title,
+                             description: screens.screenThree.description)
                     .frame(height: geometry.size.width * sizeStateScreenThree)
                     .onTapGesture(count: 1, perform: {
                         withAnimation{
