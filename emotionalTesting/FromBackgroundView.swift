@@ -7,7 +7,8 @@
 import SwiftUI
 struct ReusableView: View {
     
-    var backgroundColor: [Double] = [0, 0, 0]
+    let dataSource = DataSource()
+    var backgroundColor: Color
     var image: String = ""
     var title: String = ""
     var description: String = ""
@@ -15,7 +16,7 @@ struct ReusableView: View {
     var body: some View{
         
         ZStack{
-            Color(red: backgroundColor[0] / 255, green: backgroundColor[1] / 255, blue: backgroundColor[2] / 255)
+            backgroundColor
             VStack(alignment: .leading){
                 HStack{
                     Image(image)
@@ -26,7 +27,7 @@ struct ReusableView: View {
                         .fontWeight(.bold)
                         .padding(.top, 10)
                         .padding(.leading, 5)
-                        .font(Font.custom("FiraSans-BookItalic.otf", size: 18))
+                        .font(Font.custom(dataSource.firaSansFont, size: 18))
                         .foregroundColor(Color.white)
                     
                 }
@@ -36,12 +37,12 @@ struct ReusableView: View {
                     .padding(.leading, 25)
                     .padding(.trailing, 25)
                     .padding(.top, 10)
-                    .font(Font.custom("FiraSans-BookItalic.otf", size: 14))
+                    .font(Font.custom(dataSource.firaSansFont, size: 14))
                     .foregroundColor(Color.white)
                 
                 Button(action: {
                 }){
-                    Text("Go for It")
+                    Text("Go for It!")
                         .fontWeight(.semibold)
                         .foregroundColor(Color.white)
                         .padding(5)
@@ -65,44 +66,38 @@ struct ReusableView: View {
 struct MainView: View{
     @State var sizeStateScreenTwo: CGFloat = 1.30
     @State var sizeStateScreenThree: CGFloat = 0.80
+    var dataSource = DataSource()
     var body: some View{
         
         GeometryReader { geometry in
             ZStack(alignment: .bottom){
-                ReusableView(backgroundColor: [29, 204, 194],
-                             image: "Speak (1)",
-                             title: "REFLECTION",
-                             description: "Write about 5 people that have made your life better and why")
-                    
+                ReusableView(backgroundColor: Color(red: 29 / 255, green: 204 / 255, blue: 194 / 255),
+                             image: dataSource.image,
+                             title:  dataSource.title,
+                             description:  dataSource.description)
                     .onTapGesture(count: 1, perform: {
                         withAnimation{
                             sizeStateScreenTwo = 0.90
                             sizeStateScreenThree = 0.50
                         }
                     })
-                
-                
-                
-                ReusableView(backgroundColor: [50, 156, 253],
-                             image: "Feelings (1)",
-                             title: "DIVE",
-                             description: "In a few days, go back to see the pictures you took. What are the things that you really love? Check if they are really in the pictures. What your camera has captured is what you love? Write it down")
+                ReusableView(backgroundColor: Color(red: 50 / 255, green: 156 / 255, blue: 253 / 255) ,
+                             image: dataSource.imageTwo,
+                             title: dataSource.titleTwo,
+                             description: DataSource().descriptionTwo)
                     .frame(height: geometry.size.width * sizeStateScreenTwo)
-                    
                     .onTapGesture(count: 1, perform: {
                         withAnimation{
                             sizeStateScreenTwo = 1.40
                             sizeStateScreenThree = 0.50
                         }
                     })
-                
-                
-                ReusableView(backgroundColor: [199, 70, 116],
-                             image: "Think",
-                             title: "PRACTICE",
-                             description: "Imagine yourself in 1 year. Think where you are and how makes you feel that your dreams came true. Imagine you accomplished all you wanted. Describe all the details you imagine, who are you with? What surrounds you?")
+                //[199, 70, 116],
+                ReusableView(backgroundColor: Color(red: 199 / 255, green: 70 / 255, blue: 116 / 255),
+                             image: dataSource.imageThree,
+                             title: dataSource.titleThree,
+                             description: dataSource.descriptionThree)
                     .frame(height: geometry.size.width * sizeStateScreenThree)
-                    
                     .onTapGesture(count: 1, perform: {
                         withAnimation{
                             sizeStateScreenTwo = 1.40
