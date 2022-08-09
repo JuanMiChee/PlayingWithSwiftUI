@@ -17,6 +17,7 @@
 		73B6AAEF28948C35002A2DE2 /* ThirdScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6AAEE28948C35002A2DE2 /* ThirdScreen.swift */; };
 		73B6AAF2289724D1002A2DE2 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6AAF1289724D1002A2DE2 /* CircularProgressView.swift */; };
 		73B6AAF5289AD5B2002A2DE2 /* FiraSans-BookItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73B6AAF4289AD5B2002A2DE2 /* FiraSans-BookItalic.otf */; };
+		73C46C2C289F4FED00E62172 /* FromBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C46C2B289F4FED00E62172 /* FromBackgroundView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		73B6AAEE28948C35002A2DE2 /* ThirdScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdScreen.swift; sourceTree = "<group>"; };
 		73B6AAF1289724D1002A2DE2 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		73B6AAF4289AD5B2002A2DE2 /* FiraSans-BookItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraSans-BookItalic.otf"; sourceTree = "<group>"; };
+		73C46C2B289F4FED00E62172 /* FromBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromBackgroundView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,8 +74,9 @@
 				73B6AAD32890AC4C002A2DE2 /* Preview Content */,
 				73B6AADD2890C393002A2DE2 /* CornerStyles.swift */,
 				73B6AAE02891ECB7002A2DE2 /* secoundScreen.swift */,
-				73B6AAEE28948C35002A2DE2 /* ThirdScreen.swift */,
 				73B6AAF1289724D1002A2DE2 /* CircularProgressView.swift */,
+				73B6AAEE28948C35002A2DE2 /* ThirdScreen.swift */,
+				73C46C2B289F4FED00E62172 /* FromBackgroundView.swift */,
 			);
 			path = emotionalTesting;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73B6AAD02890AC49002A2DE2 /* ContentView.swift in Sources */,
+				73C46C2C289F4FED00E62172 /* FromBackgroundView.swift in Sources */,
 				73B6AADE2890C393002A2DE2 /* CornerStyles.swift in Sources */,
 				73B6AAEF28948C35002A2DE2 /* ThirdScreen.swift in Sources */,
 				73B6AAF2289724D1002A2DE2 /* CircularProgressView.swift in Sources */,
