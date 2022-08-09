@@ -135,7 +135,6 @@ struct ContentViewThree: View {
                 }
                 
                 .frame(height: geometry.size.width * stateScreenOne)
-                //.frame(height: trueOrFalseVerification ? geometry.size.width * 0.10 : geometry.size.width * 0.30)
                 .modifier(EmotionallContentImageStyle())
                 
                 .onTapGesture(count: 1, perform: {
@@ -212,7 +211,6 @@ struct ContentViewThree: View {
         }.ignoresSafeArea()
     }
 }
-
 
 struct ContentView_PreviewsThree: PreviewProvider {
     static var previews: some View {

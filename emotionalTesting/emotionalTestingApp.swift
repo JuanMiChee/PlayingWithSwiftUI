@@ -11,7 +11,7 @@ import SwiftUI
 struct emotionalTestingApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentViewThree()
+            MainView()
         }
     }
 }
